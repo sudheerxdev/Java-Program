@@ -1,17 +1,16 @@
-package COM.SUDHEER;
-class MyException extends Thread{
+package COM.SUDHEER.JavaLab;
+class MyThread extends Thread{
     public void run(){
-        for(int i = 0 ; i < 112 ; i++){
-            System.out.println("thread - 1");
+        for(int i = 0 ; i < 5 ; i++){
+            System.out.println("child thread  ");
         }
     }
-}
-class Main{
+
     public static void main(String[] args) {
-        MyException obj = new MyException();
-        obj.start();
-        for(int j = 0 ; j < 123 ; j++){
-            System.out.println("main thread ");
+        MyThread th = new MyThread();
+        th.start();
+        for(int i = 0 ;i < 5 ; i++){
+            System.out.println("main thread  ");
         }
     }
 }
