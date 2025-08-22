@@ -10,7 +10,7 @@ package LinkedListPractice.java;
 //    }
 //}
 class SLL{
-    static Node head ;
+    public static Node head ;
     Node tail;
     int size ;
      void Insert(int data){
