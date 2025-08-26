@@ -1,18 +1,36 @@
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
-class Demo3{
+class Demo5{
     static ArrayList<Integer>CountUnique(int []arr , int n , int k){
         ArrayList<Integer> cu = new ArrayList<>();
         for(int i=0;i<n;i++){
             int length = 0;
-            HashSet<Integer> set = new HashSet<>();
-            for(int j=i;j<n;j++){
-                set.add(arr[j]);
+            for(int j = i ; j < n ; j++){
                 length ++;
                 if(length==k){
-                    cu.add(set.size());
+                    boolean found = false;
+                    int num = 0;
+                    for(int m = i ; m <= j ; m++){
+                        if(arr[m]<0){
+                            num = arr[m];
+                            found = true;
+                            break;
+                        }
+                    }
+                    if(found){
+                        cu.add(num);
+                    }
+                    else{
+                        cu.add(0);
+                    }
                 }
+                else{
+                    if(length > k){
+                        break;
+                    }
+                }
+                if(length > k)break;
             }
 
         }

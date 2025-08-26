@@ -4,13 +4,13 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
-//class Node{
-//    int data ;
-//    Node next ;
-//    Node(int data){
-//        this.data = data;
-//    }
-//}
+class Node{
+    int data ;
+    Node next ;
+    Node(int data){
+        this.data = data;
+    }
+}
 class SortLinkedListDemo1{
     Node head = null;
     Node tail = null;
@@ -45,7 +45,7 @@ class SortLinkedListDemo1{
 
 class MainDemo1{
     public static void main(String[] args) {
-        SortLinkedListDemo obj = new SortLinkedListDemo();
+        SortLinkedListDemo1 obj = new SortLinkedListDemo1();
 //        obj.creat(10);
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
