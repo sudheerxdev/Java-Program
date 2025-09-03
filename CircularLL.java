@@ -1,63 +1,50 @@
-package LinkedListPractice.java.CircularLL;
+package DataStructure.Queue;
 
-class Node{
-    int data;
-    Node next;
-    Node(int data){
-        this.data = data;
-        this.next = null;
+class LLQueue{
+    Node front ;
+    Node rear;
+    int size ;
+    boolean isEmpty(){
+        if(front == null){
+            return true;
+        }
+        return false;
     }
-}
-class CircularLL{
-    Node head ;
-    Node tail ;
-    int size  = 0;
-    void addHead(int data){
+    void add(int data){
         Node newnode = new Node(data);
-        if(head == null){
-            head = tail = newnode;
-            tail.next = head;
+        if(front == null){
+            front = rear = newnode;
         }
         else{
-            newnode.next = head;
-            tail.next = newnode;
-            head = newnode;
+            rear.next = newnode;
+            rear = newnode;
+            rear.next = front;
+        }
+        size++;
+    }
+    void Display(){
+        Node temp = front;
+        if(front == null){
+            System.out.println("queue is empty !!");
+            return;
+        }
+        else{
+            while(temp.next != front){
+                System.out.print(temp.data + " ");
+                temp = temp.next;
+            }
         }
     }
-//    void print(){
-//        System.out.println(tail.data + " ");
-//        Node ptr = tail.next;
-//        while(ptr != head){
-//            System.out.print(ptr.data + "->");
-//            ptr = ptr.next;
-//        }
-//
-//    }
-void print() {
-    if (head == null) {
-        System.out.println("List is empty");
-        return;
-    }
-
-    Node ptr = head;
-    while (true) {
-        System.out.print(ptr.data + "->");
-        ptr = ptr.next;
-        if (ptr == head) break; // stop when we circle back
-    }
-
-    System.out.println("(back to head)");
 }
-
-}
-class Main{
-    public static void main(String [] args){
-        CircularLL obj = new CircularLL();
-        obj.addHead(12);
-        obj.addHead(22);
-        obj.addHead(32);
-        obj.addHead(42);
-        obj.addHead(52);
-        obj.print();
+class Main5{
+    public static void main(String[] args) {
+        LLQueue obj = new LLQueue();
+        obj.Display();
+        obj.add(111);
+        obj.add(222);
+        obj.add(333);
+        obj.add(444);
+        obj.add(555);
+        obj.Display();
     }
 }
