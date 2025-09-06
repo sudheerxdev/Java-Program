@@ -1,23 +1,25 @@
 package com.example.sih.controller;
 
 import com.example.sih.model.Candidate;
+import com.example.sih.model.Internship;
 import com.example.sih.service.RecommendationService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*")
 public class RecommendationController {
 
-    @Autowired
-    private RecommendationService recommendationService;
+    private final RecommendationService recommendationService;
 
-    // POST endpoint: /api/recommend
+    public RecommendationController(RecommendationService recommendationService) {
+        this.recommendationService = recommendationService;
+    }
+
     @PostMapping("/recommend")
-    public List<Map<String, Object>> getRecommendations(@RequestBody Candidate candidate) {
-        return recommendationService.recommend(candidate);
+    public List<Internship> recommend(@RequestBody Candidate candidate) {
+        return recommendationService.recommendInternships(candidate);
     }
 }
