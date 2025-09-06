@@ -10,63 +10,55 @@ import java.util.stream.Collectors;
 @Service
 public class RecommendationService {
 
-    // Sample internships data (later DB से आ सकता है)
-    private final List<Internship> internships = List.of(
-            new Internship("Community Health Volunteer", "UG - B.Sc",
-                    List.of("MS Office", "Communication"), "Healthcare", "Odisha", "3 months"),
+    private final List<Internship> internships = new ArrayList<>();
 
-            new Internship("IT Support Internship", "UG - B.Tech",
-                    List.of("Troubleshooting", "Data Entry"), "IT Services", "Remote", "2 months"),
+    public RecommendationService() {
+        // ✅ Dummy 100 realistic JDs
+        String[] sectors = {"IT Services", "Healthcare", "Finance", "Education", "Manufacturing"};
+        String[] locations = {"Delhi", "Mumbai", "Bangalore", "Hyderabad", "Chennai", "Remote"};
 
-            new Internship("Data Analyst Intern", "UG - B.Sc",
-                    List.of("Python", "SQL", "MS Excel"), "IT Services", "Delhi", "3 months")
-    );
-
-    // Calculate match score
-    private int calculateScore(Candidate candidate, Internship jd) {
-        int score = 0;
-
-        // Education match
-        if (candidate.getEducation().toLowerCase().contains(jd.getEducationRequired().toLowerCase())) {
-            score += 20;
+        for (int i = 1; i <= 100; i++) {
+            Internship internship = new Internship();
+            internship.setTitle("Internship Role " + i);
+            internship.setSector(sectors[i % sectors.length]);
+            internship.setLocation(locations[i % locations.length]);
+            internship.setDuration((1 + (i % 6)) + " months");
+            internship.setMatchScore(0); // default
+            internships.add(internship);
         }
-
-        // Skills match
-        List<String> matchedSkills = candidate.getSkills().stream()
-                .filter(skill -> jd.getSkillsRequired().stream()
-                        .map(String::toLowerCase).toList()
-                        .contains(skill.toLowerCase()))
-                .toList();
-        score += (int) (((double) matchedSkills.size() / jd.getSkillsRequired().size()) * 50);
-
-        // Sector match
-        if (candidate.getSectorInterest().equalsIgnoreCase(jd.getSector())) {
-            score += 20;
-        }
-
-        // Location match
-        if (candidate.getLocation().equalsIgnoreCase(jd.getLocation())) {
-            score += 10;
-        } else if (jd.getLocation().equalsIgnoreCase("remote")) {
-            score += 5;
-        }
-
-        return score;
     }
 
-    // Recommend top 3–5 internships
-    public List<Map<String, Object>> recommend(Candidate candidate) {
+    public List<Internship> recommendInternships(Candidate candidate) {
+        for (Internship internship : internships) {
+            int score = 0;
+
+            // ✅ Sector matching
+            if (candidate.getSectorInterest() != null &&
+                    candidate.getSectorInterest().equalsIgnoreCase(internship.getSector())) {
+                score += 30;
+            }
+
+            // ✅ Location matching
+            if (candidate.getLocation() != null &&
+                    candidate.getLocation().equalsIgnoreCase(internship.getLocation())) {
+                score += 20;
+            }
+
+            // ✅ Skills matching (title में अगर skill हो तो +10 per skill)
+            if (candidate.getSkills() != null) {
+                for (String skill : candidate.getSkills()) {
+                    if (internship.getTitle().toLowerCase().contains(skill.toLowerCase())) {
+                        score += 10;
+                    }
+                }
+            }
+
+            internship.setMatchScore(Math.min(score, 100)); // Cap at 100
+        }
+
+        // ✅ Top 10 best matches return
         return internships.stream()
-                .map(jd -> {
-                    Map<String, Object> result = new HashMap<>();
-                    result.put("title", jd.getTitle());
-                    result.put("location", jd.getLocation());
-                    result.put("duration", jd.getDuration());
-                    result.put("sector", jd.getSector());
-                    result.put("score", calculateScore(candidate, jd));
-                    return result;
-                })
-                .sorted((a, b) -> (int) b.get("score") - (int) a.get("score"))
+                .sorted(Comparator.comparingInt(Internship::getMatchScore).reversed())
                 .limit(5)
                 .collect(Collectors.toList());
     }
