@@ -5,9 +5,10 @@ import java.util.List;
 
 @Data
 public class Candidate {
-    private String education;           // e.g. "UG - B.Sc"
-    private List<String> skills;        // e.g. ["MS Office", "Communication"]
-    private String sectorInterest;      // e.g. "Healthcare"
-    private String location;            // e.g. "Odisha"
+    private String education;
+    private List<String> skills;
+    private String sectorInterest;
+    private String state;
+    private String location;
+    private List<String> interests;
 }
-
