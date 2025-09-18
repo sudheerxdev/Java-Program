@@ -7,5 +7,6 @@ class Solution {
             arr[i]=arr[i]+arr[i-1];
         }
         return arr[size-1];
+      
     }
 };
