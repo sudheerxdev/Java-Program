@@ -8,6 +8,7 @@ class ArrayClass{
     public static void main(String[] args) {
         int []arr = new int[10];
         Arrays.setAll(arr , i -> i);
+        
         System.out.println(Arrays.toString(arr));
         Arrays.fill(arr , 1);
         System.out.println(Arrays.toString(arr));
@@ -16,3 +17,4 @@ class ArrayClass{
 
     }
 }
+
