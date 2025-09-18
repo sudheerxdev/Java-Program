@@ -8,6 +8,7 @@ class CircularQueueDemo{
     int size;
     int []arr;
     CircularQueueDemo(int n){
+        
         ///  initially
         front = -1;
         rear = -1;
@@ -43,4 +44,5 @@ class CircularDemo{
         }
         obj.push(123);
     }
+
 }
