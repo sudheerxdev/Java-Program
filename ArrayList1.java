@@ -10,7 +10,9 @@ class ArrayList1{
         Arrays.setAll(arr , i -> i);
         System.out.println(Arrays.toString(arr));
         Arrays.fill(arr , 1);
+        
         System.out.println(Arrays.toString(arr));
+        
         Arrays.fill(arr , 1, 5, 4);
         System.out.println(Arrays.toString(arr));
         int []arr1 = new int[]{1,2,3,4,5};
@@ -18,3 +20,4 @@ class ArrayList1{
 
     }
 }
+
