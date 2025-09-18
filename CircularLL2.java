@@ -7,6 +7,7 @@ package LinkedListPractice.java.CircularLL;
          Node newnode = new Node(data);
          if(head == null ){
              head = tail = newnode;
+          
              tail.next = head;
          }
          else{
@@ -53,4 +54,5 @@ package LinkedListPractice.java.CircularLL;
          obj.addtail(12345);
          obj.print();
      }
+
  }
