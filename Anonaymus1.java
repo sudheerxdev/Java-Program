@@ -1,5 +1,6 @@
 package COM.SUDHEER.ARRAYLIST;
 
+
 class GoodClass{
     public static void main(String[] args) {
         Thread th = new Thread(){
@@ -13,3 +14,4 @@ class GoodClass{
     }
 
 }
+
