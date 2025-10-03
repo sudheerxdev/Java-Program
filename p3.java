@@ -1,46 +1,27 @@
-// Java program to print all
-// primes smaller than or equal to
-// n using Sieve of Eratosthenes
+package corejava.threeoct;
 
-class SieveOfEratosthenes {
-    void sieveOfEratosthenes(int n)
-    {
-        // Create a boolean array
-        // "prime[0..n]" and
-        // initialize all entries
-        // it as true. A value in
-        // prime[i] will finally be
-        // false if i is Not a
-        // prime, else true.
-        boolean prime[] = new boolean[n + 1];
-        for (int i = 0; i <= n; i++)
-            prime[i] = true;
+import java.util.Scanner;
 
-        for (int p = 2; p * p <= n; p++) {
-            // If prime[p] is not changed, then it is a
-            // prime
-            if (prime[p] == true) {
-                // Update all multiples of p
-                for (int i = p * p; i <= n; i += p)
-                    prime[i] = false;
+class PasswordValidationDoWhile {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String password;
+        boolean isValid;
+
+        do {
+            System.out.print("Enter your password (at least 8 characters): ");
+            password = scanner.nextLine();
+
+            isValid = password.length() >= 8;
+
+            if (!isValid) {
+                System.out.println("Password is too short. Please try again.");
             }
-        }
+        } while (!isValid);
 
-        // Print all prime numbers
-        for (int i = 2; i <= n; i++) {
-            if (prime[i] == true)
-                System.out.print(i + " ");
-        }
-    }
+        System.out.println("Password accepted!");
 
-    // Driver Code
-    public static void main(String args[])
-    {
-        int N = 45;
-        System.out.println(
-            "All the Prime numbers within 1 and " + N
-            + " are:");
-        SieveOfEratosthenes g = new SieveOfEratosthenes();
-        g.sieveOfEratosthenes(N);
+        scanner.close();
     }
 }
