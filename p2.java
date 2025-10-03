@@ -1,46 +1,26 @@
-// Java program to find all the
-// prime numbers from 1 to N
-class gfg {
+package corejava.threeoct;
 
-    // Function to print all the
-    // prime numbers till N
-    static void prime_N(int N)
-    {
-        // Declaring the variables
-        int x, y, flg;
+import java.util.Scanner;
 
-        // Printing display message
-        System.out.println(
-            "All the Prime numbers within 1 and " + N
-            + " are:");
+class SumUntilNegative {
 
-        // Using for loop for traversing all
-        // the numbers from 1 to N
-        for (x = 2; x <= N; x++) {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int sum = 0;
+        int number;
 
-            // Using flag variable to check
-            // if x is prime or not
-            flg = 1;
+        do {
+            System.out.print("Enter a number (enter a negative number to stop): ");
+            number = scanner.nextInt();
 
-            for (y = 2; y * y <= x; y++) {
-                if (x % y == 0) {
-                    flg = 0;
-                    break;
-                }
+            if (number >= 0) {
+                sum += number;
             }
 
-            // If flag is 1 then x is prime but
-            // if flag is 0 then x is not prime
-            if (flg == 1)
-                System.out.print(x + " ");
-        }
-    }
+        } while (number >= 0);
 
-    // The Driver code
-    public static void main(String[] args)
-    {
-        int N = 45;
+        System.out.println("Sum of the numbers entered (excluding the negative number): " + sum);
 
-        prime_N(N);
+        scanner.close();
     }
 }
