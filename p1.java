@@ -1,51 +1,20 @@
-// Java program to find all the
-// prime numbers from 1 to N
-class gfg {
+package corejava.threeoct;
 
-    // Function to print all the
-    // prime numbers till N
-    static void prime_N(int N)
-    {
-        // Declaring the variables
-        int x, y, flg;
+import java.util.Scanner;
 
-        // Printing display message
-        System.out.println(
-            "All the Prime numbers within 1 and " + N
-            + " are:");
+class ContinueUntilUserSaysNo {
 
-        // Using for loop for traversing all
-        // the numbers from 1 to N
-        for (x = 1; x <= N; x++) {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String userInput;
 
-            // Omit 0 and 1 as they are
-            // neither prime nor composite
-            if (x == 1 || x == 0)
-                continue;
+        do {
+            System.out.println("Doing some work...");
+            System.out.print("Do you want to continue? (Yes/No): ");
+            userInput = scanner.nextLine();
+        } while (!userInput.equalsIgnoreCase("No"));
 
-            // Using flag variable to check
-            // if x is prime or not
-            flg = 1;
-
-            for (y = 2; y <= x / 2; ++y) {
-                if (x % y == 0) {
-                    flg = 0;
-                    break;
-                }
-            }
-
-            // If flag is 1 then x is prime but
-            // if flag is 0 then x is not prime
-            if (flg == 1)
-                System.out.print(x + " ");
-        }
-    }
-
-    // The Driver code
-    public static void main(String[] args)
-    {
-        int N = 45;
-
-        prime_N(N);
+        System.out.println("Program terminated.");
+        scanner.close();
     }
 }
