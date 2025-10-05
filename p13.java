@@ -1,3 +1,5 @@
+package corejava.threeoct;
+
 import java.util.Scanner;
 
 class CheckSmallestNumber {

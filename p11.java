@@ -1,6 +1,8 @@
+package corejava.threeoct;
+
 import java.util.Scanner;
 
-public class Factors
+class Factors
 {
     public static void main(String[] args) {
 

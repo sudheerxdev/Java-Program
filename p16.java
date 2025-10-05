@@ -1,3 +1,5 @@
+package corejava.threeoct;
+
 import java.util.Scanner;
 
 class checkBuzzNum {
@@ -21,4 +23,4 @@ class checkBuzzNum {
     }
 
 }
-}
+
