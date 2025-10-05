@@ -1,22 +1,30 @@
-class Solution {
-    public static ArrayList<ArrayList<Integer>> findPairsWithGivenSum(int target, Node head) {
-        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
-        Node ptr1 = head;
+package misc;
 
-        while (ptr1 != null) {
-            Node ptr2 = ptr1.next;  // start from next node to avoid pairing same element
-            while (ptr2 != null) {
-                if (ptr1.data + ptr2.data == target) {
-                    ArrayList<Integer> pair = new ArrayList<>();
-                    pair.add(ptr1.data);
-                    pair.add(ptr2.data);
-                    result.add(pair);
-                }
-                ptr2 = ptr2.next;
-            }
-            ptr1 = ptr1.next;
-        }
+public class PairSum {
 
-        return result;
-    }
+	public static void PairWithMinSum(int arr[]) {
+		if (arr.length < 2) {
+			return;
+		}
+		int minimumSum = arr[0] + arr[1];
+		int pair1stIndex = 0;
+		int pair2ndIndex = 1;
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = i + 1; j < arr.length; j++) {
+				int tempSum = arr[i] + arr[j];
+				if (Math.abs(tempSum) < Math.abs(minimumSum)) {
+					pair1stIndex = i;
+					pair2ndIndex = j;
+					minimumSum = tempSum;
+				}
+			}
+		}
+		System.out.println("The pair whose sum is closet to Zero: " + arr[pair1stIndex] + " & " + arr[pair2ndIndex]);
+	}
+
+	public static void main(String[] args) {
+
+		int[] arr = { 1, 3, -5, 7, 8, 20, -40, 6 };
+		PairWithMinSum(arr);
+	}
 }
