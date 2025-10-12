@@ -1,0 +1,36 @@
+/*package whatever //do not write package name here */
+import java.io.*;
+class GFG {
+
+  static int countKdivPairs(int[] A, int n, int K)
+  {
+
+    // variable for storing answer
+    int count = 0;
+
+    for (int i = 0; i < n; i++) {
+      for (int j = i + 1; j < n; j++) {
+
+        // if pair sum is divisible
+        if ((A[i] + A[j]) % K == 0)
+
+          // Increment count
+          count++;
+      }
+    }
+
+    return count;
+  }
+
+  public static void main (String[] args) 
+  {
+    int[] A = { 2, 2, 1, 7, 5, 3 };
+    int n = A.length;
+    int K = 4;
+
+    // Function call
+    System.out.println(countKdivPairs(A, n, K));
+  }
+}
+
+// This code is contributed by utkarshshirode02
