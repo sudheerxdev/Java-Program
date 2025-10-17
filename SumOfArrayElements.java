@@ -1,4 +1,4 @@
-package corejava.oct14;
+package corejava.oct17;
 
 import java.util.Scanner;
 
