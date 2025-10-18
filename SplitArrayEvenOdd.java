@@ -1,4 +1,4 @@
-package corejava.oct17;
+package corejava.oct18;
 
 import java.util.ArrayList;
 import java.util.Scanner;
