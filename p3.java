@@ -1,27 +1,27 @@
-package corejava.sixoct;
+package corejava.threeoct;
 
 import java.util.Scanner;
 
-class ReverseNumberMethod {
-
-    public static int reverseNumber(int number) {
-        int reversedNumber = 0;
-        while (number != 0) {
-            int remainder = number % 10;
-            reversedNumber = reversedNumber * 10 + remainder;
-            number = number / 10;
-        }
-        return reversedNumber;
-    }
+class PasswordValidationDoWhile {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a number: ");
-        int originalNumber = scanner.nextInt();
+        String password;
+        boolean isValid;
 
-        int reversedNumber = reverseNumber(originalNumber);
+        do {
+            System.out.print("Enter your password (at least 8 characters): ");
+            password = scanner.nextLine();
 
-        System.out.println("Reversed number: " + reversedNumber);
+            isValid = password.length() >= 8;
+
+            if (!isValid) {
+                System.out.println("Password is too short. Please try again.");
+            }
+        } while (!isValid);
+
+        System.out.println("Password accepted!");
+
         scanner.close();
     }
 }
