@@ -18,6 +18,7 @@ public class AbstractCollectionExample {
 		
 		abs2.addAll(abs1);
 		
+		
 		System.out.println("Abstract Collection 2: " + abs2);
 		
 		abs1.clear();
