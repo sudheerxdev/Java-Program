@@ -1,38 +1,35 @@
-package corejava.oct17;
+package corejava.threeoct;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-class mFindMedianOfArray {
-
+class CheckSmallestNumber {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter the size of the array: ");
-        int size = scanner.nextInt();
+        //  7. WAJP to print he smallest digit of a number
 
-        int[] arr = new int[size];
+        Scanner sc= new Scanner(System.in);
 
-        System.out.println("Enter the elements of the array:");
-        for (int i = 0; i < size; i++) {
-            arr[i] = scanner.nextInt();
+        int num =sc.nextInt();
+
+        // int digit = Integer.MAX_VALUE;
+        int digit = 9;
+
+
+        while(num > 0) {
+
+            int rem = num % 10;
+
+            if(digit>rem) {
+
+                digit = rem;
+
+            }
+            num = num / 10;
+
         }
 
-        Arrays.sort(arr); // Sort the array to easily find the median
+        System.out.println(digit);
 
-        double median;
-        if (size % 2 == 0) { // If the array size is even
-            // Find the middle two elements and take their average
-            int mid1 = arr[size / 2 - 1];
-            int mid2 = arr[size / 2];
-            median = (double) (mid1 + mid2) / 2;
-        } else { // If the array size is odd
-            // The median is the middle element
-            median = arr[size / 2];
-        }
 
-        System.out.println("The median of the array is: " + median);
-
-        scanner.close();
     }
 }
