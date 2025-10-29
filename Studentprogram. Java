@@ -1,0 +1,39 @@
+💻 Create a Student Class
+
+import java.util.Scanner;
+
+public class StudentClass {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter student name: ");
+        String studentName = scanner.nextLine();
+
+        System.out.print("Enter student roll number: ");
+        int studentRollNumber = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        System.out.print("Enter student branch: ");
+        String studentBranch = scanner.nextLine();
+
+        System.out.println("nStudent Details:");
+        System.out.println("Name: " + studentName);
+        System.out.println("Roll Number: " + studentRollNumber);
+        System.out.println("Branch: " + studentBranch);
+
+        scanner.close();
+    }
+}
+
+
+📤 Output:
+
+Input: John Doe
+Input: 123
+Input: Computer Science
+Output: Enter student name: Enter student roll number: Enter student branch:
+Student Details:
+Name: John Doe
+Roll Number: 123
+Branch: Computer Science
