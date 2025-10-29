@@ -1,0 +1,137 @@
+💻 Create a Bank Account Class
+
+import java.util.Scanner;
+
+public class BankAccount {
+
+    private String accountHolderName;
+    private int accountNumber;
+    private double balance;
+
+    public BankAccount(String accountHolderName, int accountNumber, double initialBalance) {
+        this.accountHolderName = accountHolderName;
+        this.accountNumber = accountNumber;
+        this.balance = initialBalance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposit of ₹" + amount + " successful. New balance: ₹" + balance);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawal of ₹" + amount + " successful. New balance: ₹" + balance);
+        } else if (amount <= 0) {
+            System.out.println("Invalid withdrawal amount.");
+        } else {
+            System.out.println("Insufficient balance.");
+        }
+    }
+
+    public void checkBalance() {
+        System.out.println("Account balance for " + accountHolderName + " (Account Number: " + accountNumber + "): ₹" + balance);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter account holder name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter account number: ");
+        int number = scanner.nextInt();
+
+        System.out.print("Enter initial balance: ₹");
+        double initialBalance = scanner.nextDouble();
+        scanner.nextLine(); // Consume the newline character
+
+        BankAccount account = new BankAccount(name, number, initialBalance);
+
+        int choice;
+        do {
+            System.out.println("\nChoose an action:");
+            System.out.println("1. Deposit");
+            System.out.println("2. Withdraw");
+            System.out.println("3. Check Balance");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter deposit amount: ₹");
+                    double depositAmount = scanner.nextDouble();
+                    account.deposit(depositAmount);
+                    scanner.nextLine(); // Consume the newline character
+                    break;
+                case 2:
+                    System.out.print("Enter withdrawal amount: ₹");
+                    double withdrawalAmount = scanner.nextDouble();
+                    account.withdraw(withdrawalAmount);
+                    scanner.nextLine(); // Consume the newline character
+                    break;
+                case 3:
+                    account.checkBalance();
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } while (choice != 4);
+
+        scanner.close();
+    }
+}
+
+
+📤 Output:
+
+```
+Enter account holder name: John Doe
+Enter account number: 12345
+Enter initial balance: ₹1000
+Input: 1000
+
+Choose an action:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Exit
+Enter your choice: 1
+Input: 1
+
+Enter deposit amount: ₹500
+Input: 500
+Output: Deposit of ₹500.0 successful. New balance: ₹1500.0
+
+Choose an action:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Exit
+Enter your choice: 2
+Input: 2
+
+Enter withdrawal amount: ₹200
+Input: 200
+Output: Withdrawal of ₹200.0 successful. New balance: ₹1300.0
+
+Choose an action:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Exit
+Enter your choice: 3
+Input: 3
+Output: Account balance for John Doe (Account Number: 12345): ₹1300.0
+
+_(Part 1/2)_
