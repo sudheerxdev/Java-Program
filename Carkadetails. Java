@@ -1,0 +1,42 @@
+💻 Create a Car Class
+
+import java.util.Scanner;
+
+public class CarDetails {
+    String carModel;
+    String carColor;
+    int modelYear;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        CarDetails myCar = new CarDetails();
+
+        System.out.print("Enter car model: ");
+        myCar.carModel = scanner.nextLine();
+
+        System.out.print("Enter car color: ");
+        myCar.carColor = scanner.nextLine();
+
+        System.out.print("Enter model year: ");
+        myCar.modelYear = scanner.nextInt();
+
+        System.out.println("Car Details:");
+        System.out.println("Model: " + myCar.carModel);
+        System.out.println("Color: " + myCar.carColor);
+        System.out.println("Year: " + myCar.modelYear);
+
+        scanner.close();
+    }
+}
+
+
+📤 Output:
+
+Input: Toyota Camry
+Input: Silver
+Input: 2023
+Output: Enter car model: Enter car color: Enter model year: Car Details:
+Model: Toyota Camry
+Color: Silver
+Year: 2023
