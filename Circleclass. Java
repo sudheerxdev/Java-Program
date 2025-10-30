@@ -1,0 +1,44 @@
+💻 Create a Circle Class
+
+import java.util.Scanner;
+
+public class CircleClass {
+
+    private double radius;
+
+    public CircleClass(double radius) {
+        this.radius = radius;
+    }
+
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    public double calculateCircumference() {
+        return 2 * Math.PI * radius;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the radius of the circle: ");
+        double radius = scanner.nextDouble();
+
+        CircleClass myCircle = new CircleClass(radius);
+
+        double area = myCircle.calculateArea();
+        double circumference = myCircle.calculateCircumference();
+
+        System.out.println("Area of the circle: " + area);
+        System.out.println("Circumference of the circle: " + circumference);
+
+        scanner.close();
+    }
+}
+
+
+📤 Output:
+
+Input: 5
+Output: Enter the radius of the circle: Area of the circle: 78.53981633974483
+Circumference of the circle: 31.41592653589793
