@@ -1,6 +1,7 @@
 package corejava;
 
 import java.util.Scanner;
+
 class GCDWhileLoop {
 
     public static void main(String[] args) {
@@ -22,3 +23,4 @@ class GCDWhileLoop {
         scanner.close();
     }
 }
+
