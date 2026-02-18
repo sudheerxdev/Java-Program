@@ -5,8 +5,6 @@ import java.util.List;
 
 public class ArrayListToArrayConversion {
 
-	
-
 	public static void main(String[] args) {
 		List<Integer> al = new ArrayList<Integer>();
 		al.add(10);
