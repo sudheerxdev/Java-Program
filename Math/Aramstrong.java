@@ -9,7 +9,6 @@ public class ArmstrongNumberChecker {
         int originalNumber = number;
         int sum = 0;
         int numberOfDigits = String.valueOf(number).length();
-
         while (number > 0) {
             int digit = number % 10;
             sum += Math.pow(digit, numberOfDigits);
