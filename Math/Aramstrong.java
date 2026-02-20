@@ -12,7 +12,8 @@ public class ArmstrongNumberChecker {
         while (number > 0) {
             int digit = number % 10;
             sum += Math.pow(digit, numberOfDigits);
-    
+
+            
             number /= 10;
         }
 
