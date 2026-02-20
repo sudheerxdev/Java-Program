@@ -15,7 +15,6 @@ public class ArmstrongNumberChecker {
             sum += Math.pow(digit, numberOfDigits);
             
             number /= 10;
-            
         }
 
         if (sum == originalNumber) {
