@@ -15,6 +15,8 @@ class deleteMiddle{
         }
         int n = pos / 2;
         // remove element from the arraylist
+
+        
         al.remove(n);
         for(int i = al.size() -1 ; i >= 0 ; i--){
             st.add(al.get(i));
