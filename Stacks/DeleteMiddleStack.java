@@ -6,6 +6,9 @@ import java.util.Stack;
 
 class deleteMiddle{
     public static void deleteMid(Stack<Integer>st , int pos){
+
+
+        
         // create  aarrayalist
          ArrayList<Integer>al = new ArrayList<>();
          // travese of the stack
