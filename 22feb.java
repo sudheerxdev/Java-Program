@@ -20,6 +20,7 @@ class LLQueue{
             rear = newnode;
             rear.next = front;
         }
+        
         size++;
     }
     void Display(){
