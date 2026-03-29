@@ -7,6 +7,13 @@ class LLQueue{
 
 
 
+
+
+
+
+
+    
+
     
     boolean isEmpty(){
         if(front == null){
