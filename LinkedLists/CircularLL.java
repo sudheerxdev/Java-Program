@@ -4,6 +4,10 @@ class LLQueue{
     Node front ;
     Node rear;
     int size ;
+
+
+
+    
     boolean isEmpty(){
         if(front == null){
             return true;
