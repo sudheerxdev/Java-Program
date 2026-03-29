@@ -6,15 +6,6 @@ class LLQueue{
     int size ;
 
 
-
-
-
-
-
-
-    
-
-    
     boolean isEmpty(){
         if(front == null){
             return true;
