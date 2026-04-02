@@ -10,7 +10,6 @@ package LinkedListPractice.java.CircularLL;
           
              tail.next = head;
          }
-
           
          else{
              newnode.next = head;
